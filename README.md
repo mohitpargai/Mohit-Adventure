@@ -551,6 +551,7 @@ which are both suitable for iOS. Touch controls appear automatically on iOS.
   device and Godot's Android export templates were not available in this
   environment.
 - **No iOS build was made here.** iOS export requires macOS and Xcode.
+- **Publishing this repository does not mean Android or iOS apps are already built or ready to install.** The next planned step is to create an Android APK and test it on a physical Android phone. After Android testing, an iOS build can be prepared on macOS using Xcode.
 - Touch input was verified with simulated button presses. Real-phone testing is
   still recommended for thumb reach, notches and different screen shapes.
 - Audio is generated procedurally. It was checked for runtime errors but not
