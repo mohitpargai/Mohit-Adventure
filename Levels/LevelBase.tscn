@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Levels/level.gd" id="1_level"]
+[ext_resource type="PackedScene" path="res://Scenes/ForestBackground.tscn" id="2_bg"]
+[ext_resource type="PackedScene" path="res://UI/HUD.tscn" id="3_hud"]
+[ext_resource type="PackedScene" path="res://UI/TouchControls.tscn" id="4_touch"]
+[ext_resource type="PackedScene" path="res://UI/PauseMenu.tscn" id="5_pause"]
+[ext_resource type="PackedScene" path="res://UI/LevelComplete.tscn" id="6_complete"]
+[ext_resource type="PackedScene" path="res://UI/GameOver.tscn" id="7_gameover"]
+[ext_resource type="PackedScene" path="res://UI/StoryCard.tscn" id="8_story"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_level")
+level_index = 0
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="ForestBackground" parent="Background" instance=ExtResource("2_bg")]
+layout_mode = 1
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="HUD" parent="UI" instance=ExtResource("3_hud")]
+layout_mode = 1
+
+[node name="TouchControls" parent="UI" instance=ExtResource("4_touch")]
+layout_mode = 1
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("5_pause")]
+layout_mode = 1
+
+[node name="LevelComplete" parent="UI" instance=ExtResource("6_complete")]
+layout_mode = 1
+
+[node name="GameOver" parent="UI" instance=ExtResource("7_gameover")]
+layout_mode = 1
+
+[node name="StoryCard" parent="UI" instance=ExtResource("8_story")]
+layout_mode = 1

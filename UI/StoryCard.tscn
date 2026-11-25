@@ -1,0 +1,95 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Theme" path="res://Assets/Theme/mohit_theme.tres" id="1_theme"]
+[ext_resource type="Script" path="res://Scripts/UI/story_card.gd" id="2_story"]
+
+[node name="StoryCard" type="Control"]
+visible = false
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_theme")
+script = ExtResource("2_story")
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0117647, 0.027451, 0.0431373, 0.82)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(880, 0)
+layout_mode = 2
+theme_type_variation = &"MenuPanel"
+
+[node name="VBox" type="VBoxContainer" parent="Center/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Chapter" type="Label" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.729412, 0.921569, 0.682353, 1)
+theme_override_font_sizes/font_size = 18
+text = "CHAPTER I"
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85098, 0.482353, 1)
+theme_override_colors/font_outline_color = Color(0.027451, 0.101961, 0.0705882, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 46
+text = "THE STORY BEGINS"
+horizontal_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="Center/Panel/VBox"]
+layout_mode = 2
+
+[node name="Body" type="Label" parent="Center/Panel/VBox"]
+custom_minimum_size = Vector2(820, 180)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.956863, 0.905882, 1)
+theme_override_font_sizes/font_size = 26
+text = "Story text goes here."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Progress" type="Label" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.729412, 0.921569, 0.682353, 0.8)
+theme_override_font_sizes/font_size = 16
+text = "1 / 1"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="Center/Panel/VBox/Buttons"]
+custom_minimum_size = Vector2(260, 60)
+layout_mode = 2
+theme_type_variation = &"PrimaryButton"
+text = "CONTINUE"
+
+[node name="SkipButton" type="Button" parent="Center/Panel/VBox/Buttons"]
+custom_minimum_size = Vector2(180, 56)
+layout_mode = 2
+theme_type_variation = &"GhostButton"
+text = "SKIP"

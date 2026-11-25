@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/touch_controls.gd" id="1_touch"]
+[ext_resource type="Script" path="res://Scripts/UI/touch_button.gd" id="2_button"]
+
+[node name="TouchControls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_touch")
+
+[node name="LeftButton" type="Control" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 540.0
+offset_right = 166.0
+offset_bottom = 668.0
+mouse_filter = 0
+script = ExtResource("2_button")
+action = &"move_left"
+icon = "left"
+accent = Color(0.321569, 0.709804, 0.4, 1)
+
+[node name="RightButton" type="Control" parent="."]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 540.0
+offset_right = 314.0
+offset_bottom = 668.0
+mouse_filter = 0
+script = ExtResource("2_button")
+action = &"move_right"
+icon = "right"
+accent = Color(0.321569, 0.709804, 0.4, 1)
+
+[node name="JumpButton" type="Control" parent="."]
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 532.0
+offset_right = 1250.0
+offset_bottom = 682.0
+mouse_filter = 0
+script = ExtResource("2_button")
+action = &"jump"
+icon = "jump"
+accent = Color(1, 0.623529, 0.231373, 1)

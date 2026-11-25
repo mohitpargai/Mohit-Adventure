@@ -1,0 +1,137 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Theme" path="res://Assets/Theme/mohit_theme.tres" id="1_theme"]
+[ext_resource type="Script" path="res://Scripts/UI/level_complete.gd" id="2_complete"]
+
+[node name="LevelComplete" type="Control"]
+visible = false
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_theme")
+script = ExtResource("2_complete")
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0117647, 0.0392157, 0.027451, 0.7)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(760, 0)
+layout_mode = 2
+theme_type_variation = &"MenuPanel"
+
+[node name="VBox" type="VBoxContainer" parent="Center/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85098, 0.482353, 1)
+theme_override_colors/font_outline_color = Color(0.027451, 0.101961, 0.0705882, 1)
+theme_override_constants/outline_size = 13
+theme_override_font_sizes/font_size = 60
+text = "LEVEL COMPLETE!"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.729412, 0.921569, 0.682353, 1)
+theme_override_font_sizes/font_size = 22
+text = "The forest cheers for Mohit!"
+horizontal_alignment = 1
+
+[node name="Stars" type="Label" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.858824, 0.360784, 1)
+theme_override_colors/font_outline_color = Color(0.129412, 0.0784314, 0.00784314, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 58
+text = "★★★"
+horizontal_alignment = 1
+
+[node name="Stats" type="VBoxContainer" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="CoinsLabel" type="Label" parent="Center/Panel/VBox/Stats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.866667, 0.403922, 1)
+theme_override_font_sizes/font_size = 27
+text = "COINS     0 / 0"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="Center/Panel/VBox/Stats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 27
+text = "SCORE     0"
+horizontal_alignment = 1
+
+[node name="OptionalLabel" type="Label" parent="Center/Panel/VBox/Stats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85098, 0.482353, 1)
+theme_override_font_sizes/font_size = 20
+text = "OPTIONAL MISSION"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ShardLabel" type="Label" parent="Center/Panel/VBox/Stats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.658824, 0.905882, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "CRYSTAL SHARD"
+horizontal_alignment = 1
+
+[node name="BonusLabel" type="Label" parent="Center/Panel/VBox/Stats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.780392, 1, 0.701961, 1)
+theme_override_font_sizes/font_size = 18
+text = "MISSION BONUS  +0"
+horizontal_alignment = 1
+
+[node name="DeathsLabel" type="Label" parent="Center/Panel/VBox/Stats"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.878431, 0.92549, 0.862745, 0.8)
+theme_override_font_sizes/font_size = 16
+text = "LIVES LOST  0"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="NextButton" type="Button" parent="Center/Panel/VBox/Buttons"]
+custom_minimum_size = Vector2(220, 62)
+layout_mode = 2
+theme_type_variation = &"PrimaryButton"
+text = "NEXT LEVEL"
+
+[node name="ReplayButton" type="Button" parent="Center/Panel/VBox/Buttons"]
+custom_minimum_size = Vector2(200, 58)
+layout_mode = 2
+theme_type_variation = &"GhostButton"
+text = "REPLAY"
+
+[node name="MenuButton" type="Button" parent="Center/Panel/VBox/Buttons"]
+custom_minimum_size = Vector2(200, 58)
+layout_mode = 2
+theme_type_variation = &"GhostButton"
+text = "MAIN MENU"

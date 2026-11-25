@@ -1,0 +1,84 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Theme" path="res://Assets/Theme/mohit_theme.tres" id="1_theme"]
+[ext_resource type="Script" path="res://Scripts/UI/level_select.gd" id="2_select"]
+
+[node name="LevelSelect" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_theme")
+script = ExtResource("2_select")
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0117647, 0.0392157, 0.027451, 0.82)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(1160, 640)
+layout_mode = 2
+theme_type_variation = &"MenuPanel"
+
+[node name="VBox" type="VBoxContainer" parent="Center/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85098, 0.482353, 1)
+theme_override_colors/font_outline_color = Color(0.027451, 0.101961, 0.0705882, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 42
+text = "CHOOSE YOUR KINGDOM"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.729412, 0.921569, 0.682353, 1)
+theme_override_font_sizes/font_size = 18
+text = "Six worlds. Thirty levels. One brave explorer."
+horizontal_alignment = 1
+
+[node name="Scroll" type="ScrollContainer" parent="Center/Panel/VBox"]
+custom_minimum_size = Vector2(0, 430)
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+follow_focus = true
+
+[node name="WorldList" type="VBoxContainer" parent="Center/Panel/VBox/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="BestLabel" type="Label" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85098, 0.482353, 1)
+theme_override_font_sizes/font_size = 15
+text = "BEST SCORE  •  0"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="BackButton" type="Button" parent="Center/Panel/VBox"]
+custom_minimum_size = Vector2(240, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"GhostButton"
+text = "BACK"

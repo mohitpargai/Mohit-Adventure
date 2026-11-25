@@ -1,0 +1,256 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Theme" path="res://Assets/Theme/mohit_theme.tres" id="1_theme"]
+[ext_resource type="Script" path="res://Scripts/UI/hud.gd" id="2_hud"]
+[ext_resource type="PackedScene" path="res://UI/Hearts.tscn" id="3_hearts"]
+[ext_resource type="PackedScene" path="res://UI/CoinIcon.tscn" id="4_coinicon"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_theme")
+script = ExtResource("2_hud")
+
+[node name="TopLeft" type="PanelContainer" parent="."]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 244.0
+offset_bottom = 116.0
+mouse_filter = 2
+theme_type_variation = &"HudPanel"
+
+[node name="VBox" type="VBoxContainer" parent="TopLeft"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Hearts" parent="TopLeft/VBox" instance=ExtResource("3_hearts")]
+layout_mode = 2
+
+[node name="LivesLabel" type="Label" parent="TopLeft/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.792157, 0.921569, 0.780392, 1)
+theme_override_font_sizes/font_size = 17
+text = "LIVES  ×3"
+
+[node name="StatusLabel" type="Label" parent="TopLeft/VBox"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.741176, 0.909804, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "SHIELD"
+
+[node name="MissionPanel" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+offset_left = 20.0
+offset_top = 128.0
+offset_right = 360.0
+offset_bottom = 268.0
+mouse_filter = 2
+theme_type_variation = &"HudPanel"
+
+[node name="VBox" type="VBoxContainer" parent="MissionPanel"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="MissionHeader" type="Label" parent="MissionPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.729412, 0.921569, 0.682353, 1)
+theme_override_font_sizes/font_size = 14
+text = "MISSION"
+
+[node name="MissionMain" type="Label" parent="MissionPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.945098, 0.968627, 0.921569, 1)
+theme_override_font_sizes/font_size = 17
+text = "Reach the finish flag"
+autowrap_mode = 3
+
+[node name="MissionOptional" type="Label" parent="MissionPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85098, 0.482353, 1)
+theme_override_font_sizes/font_size = 15
+text = "Optional: Collect 0 coins"
+autowrap_mode = 3
+
+[node name="BossBar" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -260.0
+offset_top = 126.0
+offset_right = 260.0
+offset_bottom = 198.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_type_variation = &"HudPanel"
+
+[node name="VBox" type="VBoxContainer" parent="BossBar"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="BossName" type="Label" parent="BossBar/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.701961, 0.482353, 1)
+theme_override_colors/font_outline_color = Color(0.121569, 0.027451, 0.027451, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 19
+text = "THE FOREST GUARDIAN"
+horizontal_alignment = 1
+
+[node name="BossProgress" type="ProgressBar" parent="BossBar/VBox"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+max_value = 100.0
+value = 100.0
+show_percentage = false
+
+[node name="TopCenter" type="PanelContainer" parent="."]
+layout_mode = 1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -178.0
+offset_top = 16.0
+offset_right = 178.0
+offset_bottom = 108.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_type_variation = &"HudPanel"
+
+[node name="VBox" type="VBoxContainer" parent="TopCenter"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="LevelLabel" type="Label" parent="TopCenter/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85098, 0.945098, 0.666667, 1)
+theme_override_font_sizes/font_size = 18
+text = "LEVEL 1  •  FOREST TRAIL"
+horizontal_alignment = 1
+text_overrun_behavior = 3
+
+[node name="CoinRow" type="HBoxContainer" parent="TopCenter/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="CoinIcon" parent="TopCenter/VBox/CoinRow" instance=ExtResource("4_coinicon")]
+layout_mode = 2
+
+[node name="CoinLabel" type="Label" parent="TopCenter/VBox/CoinRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.866667, 0.403922, 1)
+theme_override_font_sizes/font_size = 26
+text = "0 / 0"
+vertical_alignment = 1
+
+[node name="TopRight" type="PanelContainer" parent="."]
+layout_mode = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -320.0
+offset_top = 16.0
+offset_right = -20.0
+offset_bottom = 86.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_type_variation = &"HudPanel"
+
+[node name="HBox" type="HBoxContainer" parent="TopRight"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 2
+
+[node name="ScoreLabel" type="Label" parent="TopRight/HBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "SCORE  0"
+vertical_alignment = 1
+
+[node name="PauseButton" type="Button" parent="TopRight/HBox"]
+custom_minimum_size = Vector2(54, 54)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme_type_variation = &"GhostButton"
+theme_override_font_sizes/font_size = 21
+text = "II"
+
+[node name="IntroBanner" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="PanelContainer" parent="IntroBanner"]
+custom_minimum_size = Vector2(560, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"MenuPanel"
+
+[node name="VBox" type="VBoxContainer" parent="IntroBanner/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="IntroTitle" type="Label" parent="IntroBanner/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85098, 0.482353, 1)
+theme_override_colors/font_outline_color = Color(0.027451, 0.101961, 0.0705882, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 62
+text = "LEVEL 1"
+horizontal_alignment = 1
+
+[node name="IntroSubtitle" type="Label" parent="IntroBanner/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85098, 0.945098, 0.666667, 1)
+theme_override_font_sizes/font_size = 24
+text = "FOREST TRAIL"
+horizontal_alignment = 1
+
+[node name="AchievementToast" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -270.0
+offset_top = -196.0
+offset_right = 270.0
+offset_bottom = -108.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_type_variation = &"HudPanel"
+
+[node name="VBox" type="VBoxContainer" parent="AchievementToast"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="ToastTitle" type="Label" parent="AchievementToast/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85098, 0.482353, 1)
+theme_override_font_sizes/font_size = 20
+text = "ACHIEVEMENT UNLOCKED"
+horizontal_alignment = 1
+
+[node name="ToastDesc" type="Label" parent="AchievementToast/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.878431, 0.933333, 0.858824, 1)
+theme_override_font_sizes/font_size = 15
+text = "First Steps"
+horizontal_alignment = 1
+autowrap_mode = 3

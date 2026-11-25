@@ -1,0 +1,246 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Theme" path="res://Assets/Theme/mohit_theme.tres" id="1_theme"]
+[ext_resource type="Script" path="res://Scripts/UI/main_menu.gd" id="2_menu"]
+[ext_resource type="PackedScene" path="res://Scenes/ForestBackground.tscn" id="3_bg"]
+[ext_resource type="PackedScene" path="res://UI/CoinIcon.tscn" id="4_coin"]
+[ext_resource type="PackedScene" path="res://UI/SettingsPanel.tscn" id="5_settings"]
+[ext_resource type="PackedScene" path="res://UI/LevelSelect.tscn" id="6_levels"]
+[ext_resource type="PackedScene" path="res://UI/Achievements.tscn" id="7_achievements"]
+
+[sub_resource type="StyleBoxFlat" id="MenuPanelCompact"]
+content_margin_left = 30.0
+content_margin_top = 22.0
+content_margin_right = 30.0
+content_margin_bottom = 22.0
+bg_color = Color(0.0392157, 0.12549, 0.0862745, 0.82)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.85098, 0.945098, 0.666667, 0.3)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_theme")
+script = ExtResource("2_menu")
+
+[node name="ForestBackground" parent="." instance=ExtResource("3_bg")]
+layout_mode = 1
+menu_mode = true
+
+[node name="Vignette" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0117647, 0.0392157, 0.027451, 0.12)
+
+[node name="TitleArea" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -580.0
+offset_top = 14.0
+offset_right = 580.0
+offset_bottom = 254.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="VBox" type="VBoxContainer" parent="TitleArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = -2
+alignment = 1
+
+[node name="MohitLabel" type="Label" parent="TitleArea/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.972549, 0.862745, 1)
+theme_override_colors/font_outline_color = Color(0.0196078, 0.0784314, 0.054902, 1)
+theme_override_colors/font_shadow_color = Color(0.00784314, 0.0313725, 0.0196078, 0.65)
+theme_override_constants/outline_size = 24
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 9
+theme_override_font_sizes/font_size = 104
+text = "MOHIT"
+horizontal_alignment = 1
+
+[node name="AdventureLabel" type="Label" parent="TitleArea/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85098, 0.482353, 1)
+theme_override_colors/font_outline_color = Color(0.027451, 0.101961, 0.0705882, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 54
+text = "ADVENTURE"
+horizontal_alignment = 1
+
+[node name="Tagline" type="Label" parent="TitleArea/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.729412, 0.921569, 0.682353, 1)
+theme_override_colors/font_outline_color = Color(0.0196078, 0.0784314, 0.054902, 0.8)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 21
+text = "A  S I X - W O R L D  A D V E N T U R E"
+horizontal_alignment = 1
+
+[node name="CoinLeft" parent="." instance=ExtResource("4_coin")]
+layout_mode = 1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -512.0
+offset_top = 140.0
+offset_right = -452.0
+offset_bottom = 200.0
+grow_horizontal = 2
+scale = Vector2(2.1, 2.1)
+
+[node name="CoinRight" parent="." instance=ExtResource("4_coin")]
+layout_mode = 1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 468.0
+offset_top = 92.0
+offset_right = 528.0
+offset_bottom = 152.0
+grow_horizontal = 2
+scale = Vector2(1.7, 1.7)
+
+[node name="MenuPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -246.0
+offset_top = 258.0
+offset_right = 246.0
+offset_bottom = 680.0
+grow_horizontal = 2
+theme_type_variation = &"MenuPanel"
+theme_override_styles/panel = SubResource("MenuPanelCompact")
+
+[node name="VBox" type="VBoxContainer" parent="MenuPanel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="MenuPanel/VBox"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+theme_type_variation = &"PrimaryButton"
+theme_override_font_sizes/font_size = 26
+text = "CONTINUE"
+
+[node name="NewGameButton" type="Button" parent="MenuPanel/VBox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "NEW GAME"
+
+[node name="LevelsButton" type="Button" parent="MenuPanel/VBox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "LEVEL SELECT"
+
+[node name="AchievementsButton" type="Button" parent="MenuPanel/VBox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "ACHIEVEMENTS"
+
+[node name="SettingsButton" type="Button" parent="MenuPanel/VBox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "SETTINGS"
+
+[node name="QuitButton" type="Button" parent="MenuPanel/VBox"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"GhostButton"
+theme_override_font_sizes/font_size = 18
+text = "EXIT"
+
+[node name="BestLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -36.0
+offset_right = 344.0
+offset_bottom = -6.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.729412, 0.921569, 0.682353, 1)
+theme_override_colors/font_outline_color = Color(0.0196078, 0.0784314, 0.054902, 0.8)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 16
+text = "BEST SCORE  •  0"
+vertical_alignment = 1
+
+[node name="ProgressLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -36.0
+offset_right = 280.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.898039, 0.933333, 0.866667, 0.95)
+theme_override_colors/font_outline_color = Color(0.0196078, 0.0784314, 0.054902, 0.8)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 16
+text = "LEVELS  0 / 30      ★  0 / 90      ◆  0 / 6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HintLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -580.0
+offset_top = -36.0
+offset_right = -24.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.898039, 0.933333, 0.866667, 0.85)
+theme_override_colors/font_outline_color = Color(0.0196078, 0.0784314, 0.054902, 0.8)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 15
+text = "A/D or arrows move  •  Space jumps  •  Esc pauses"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SettingsPanel" parent="." instance=ExtResource("5_settings")]
+layout_mode = 1
+
+[node name="LevelSelect" parent="." instance=ExtResource("6_levels")]
+layout_mode = 1
+
+[node name="Achievements" parent="." instance=ExtResource("7_achievements")]
+layout_mode = 1

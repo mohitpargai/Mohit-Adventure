@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/coin_icon.gd" id="1_coinicon"]
+
+[node name="CoinIcon" type="Control"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 30.0
+mouse_filter = 2
+script = ExtResource("1_coinicon")
